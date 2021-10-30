@@ -9,14 +9,14 @@ const Login = () => {
     const location = useLocation();
     const history = useHistory();
     const redirect_url = location.state?.from || '/home';
-    const { signInUsingGoogle, setUser, setIsLoading } = useAuth();
+    const { signInUsingGoogle, setUser,  setIsLoading } = useAuth();
     //handle google sing in
     const handleGoogleSignIn = () => {
         signInUsingGoogle()
             .then((result) => {
-                history.push(redirect_url);
+                setIsLoading(true);
                 setUser(result.user);
-                setIsLoading(true)
+                history.push(redirect_url);
                 swal("Google Sign In Success", {
                     icon: "success",
                 });
