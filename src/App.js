@@ -5,6 +5,8 @@ import {
   Route
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Home from './components/Home/Home';
 import Footer from './components/Shared/Footer/Footer';
 import Header from './components/Shared/Header/Header';
