@@ -20,15 +20,15 @@ const Header = () => {
                             style={{ maxHeight: '100px' }}
                             navbarScroll>
                             <Nav.Link as={NavLink} to="/" className="nav-link" >Home</Nav.Link>
-                            <Nav.Link as={NavLink} to="/tours" className="nav-link" >Shop</Nav.Link>
-                            <Nav.Link as={NavLink} to="/destination" className="nav-link" >Shop</Nav.Link>
+                            <Nav.Link as={NavLink} to="/tours" className="nav-link" >Tour</Nav.Link>
+                            <Nav.Link as={NavLink} to="/destination" className="nav-link" >Destination</Nav.Link>
                             <Nav.Link as={NavLink} to="/about" className="nav-link" >About</Nav.Link>
                             <Nav.Link as={NavLink} to="/contact" className="nav-link" >Contact</Nav.Link>
                             {user.email ?
                                 <div className='d-flex'>
                                     <Button className="mx-5" onClick={signOutUser}>Sign Out</Button>
                                     <p className="px-5"> {user.displayName}</p></div> :
-                                <Nav.Link as={NavLink} to="/signIn" className="nav-link" ><Button>sign In</Button></Nav.Link>
+                                <Nav.Link as={NavLink} to="/login" className="nav-link" ><Button>sign In</Button></Nav.Link>
                             }
                         </Nav>
 

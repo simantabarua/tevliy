@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import Slider from '../Slider/Slider';
 const Home = () => {
   return (
     <div>
-     <Container>
-       <h1>
-         home
-       </h1>
-     </Container>
+      <Slider></Slider>
+      <Container>
+
+      </Container>
     </div>
   );
 };
