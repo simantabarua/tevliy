@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import initializeAuthentication from '../config/firebse.init';
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
 import swal from 'sweetalert';
 initializeAuthentication();
 const useFirebase = () => {
     const [user, setUser] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
+
     const auth = getAuth();
     const googleAuthProvider = new GoogleAuthProvider();
     //google sign in
@@ -26,9 +28,10 @@ const useFirebase = () => {
             if (user) {
                 setUser(user)
             }
+            setIsLoading(false);
         })
     }, [auth])
- 
+
 
 
     return {
@@ -36,6 +39,7 @@ const useFirebase = () => {
         setUser,
         signInUsingGoogle,
         signOutUser,
+        setIsLoading
     }
 };
 

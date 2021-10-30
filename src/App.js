@@ -15,6 +15,8 @@ import About from './components/About/About';
 import NotFound from './components/NotFound/NotFound';
 import Login from './components/Login/Login';
 import AuthProvider from './contexts/AuthProvider';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import Details from './components/Details/Details';
 function App() {
   return (
     <div>
@@ -41,6 +43,9 @@ function App() {
               <About></About> </Route>
             <Route path='/contact'>
               <Contact></Contact></Route>
+              <PrivateRoute exact path="/details/:id">
+            <Details></Details>
+          </PrivateRoute>
             <Route path='*'>
               <NotFound></NotFound> </Route>
           </Switch>
