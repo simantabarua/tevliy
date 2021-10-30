@@ -13,30 +13,40 @@ import Destination from './components/Destination/Destination';
 import Contact from './components/Contact/Contact';
 import About from './components/About/About';
 import NotFound from './components/NotFound/NotFound';
+import Login from './components/Login/Login';
+import AuthProvider from './contexts/AuthProvider';
 function App() {
   return (
     <div>
-      <Router>
-        <Header></Header>
-        <Switch>
-          <Route exact path="/">
-            <Home></Home>
-          </Route>
-          <Route path='/tours'>
-            <Tours></Tours>
-          </Route>
-          <Route path='/destination'>
-            <Destination></Destination>
-          </Route>
-          <Route path='/about'>
-            <About></About> </Route>
-          <Route path='/contact'>
-            <Contact></Contact></Route>
-          <Route path='*'>
-            <NotFound></NotFound> </Route>
-        </Switch>
-        <Footer></Footer>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Header></Header>
+          <Switch>
+            <Route exact path="/">
+              <Home></Home>
+            </Route>
+            <Route path="/home">
+              <Home></Home>
+            </Route>
+            <Route path='/tours'>
+              <Tours></Tours>
+            </Route>
+            <Route path='/login'>
+              <Login></Login>
+            </Route>
+            <Route path='/destination'>
+              <Destination></Destination>
+            </Route>
+            <Route path='/about'>
+              <About></About> </Route>
+            <Route path='/contact'>
+              <Contact></Contact></Route>
+            <Route path='*'>
+              <NotFound></NotFound> </Route>
+          </Switch>
+          <Footer></Footer>
+        </Router>
+      </AuthProvider>
     </div>
   );
 }
