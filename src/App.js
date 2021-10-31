@@ -45,7 +45,7 @@ function App() {
               <About></About> </Route>
             <Route path='/contact'>
               <Contact></Contact></Route>
-              <PrivateRoute exact path="/details/:id">
+              <PrivateRoute exact path="/tour_details/:id">
             <Details></Details>
           </PrivateRoute>
             <Route path='*'>

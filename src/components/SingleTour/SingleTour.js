@@ -4,7 +4,9 @@ import './SingleTour.css'
 import { Link } from 'react-router-dom';
 
 const SingleTour = (props) => {
-    const { index, title, image, category, price, details } = props.tour;
+    const { _id, title, image, category, price, details } = props.tour;
+
+    
     return (
         <div>
              <Col>
@@ -21,7 +23,7 @@ const SingleTour = (props) => {
                         </ListGroup>
                     </Card.Body>
                     <Card.Footer className="text-center card-footer">
-                        <Link to={`/tour_details/${index}`} className="text-light"> <Button variant="primary">Details</Button></Link>
+                        <Link to={`/tour_details/${_id}`} className="text-light"> <Button variant="primary">Details</Button></Link>
                     </Card.Footer>
                 </Card>
             </Col>
