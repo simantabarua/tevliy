@@ -6,14 +6,14 @@ import './Tours.css'
 const Tours = () => {
     const [tours, setTours] = useState([])
 
-    // https://intense-ravine-02304.herokuapp.com/tours
     const [page, setPage] = useState(0);
     const [pageCount, setPageCount] = useState(0);
     //  rendered on the UI
     const [displayTours, setDisplayTours] = useState([]);
     const size = 10;
     useEffect(() => {
-        const url = `http://localhost:5000/tours?page=${page}&&size=${size}`;
+        const url = `https://intense-ravine-02304.herokuapp.com/tours?page=${page}&&size=${size}`;
+        // const url = `http://localhost:5000/tours?page=${page}&&size=${size}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
