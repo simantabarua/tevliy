@@ -20,6 +20,7 @@ import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import Details from './components/Details/Details';
 import DashBoard from './components/DashBoard/DashBoard';
+import Cart from './components/Cart/Cart';
 function App() {
   return (
     <div>
@@ -49,6 +50,9 @@ function App() {
               <PrivateRoute exact path="/tour_details/:id">
             <Details></Details>
           </PrivateRoute>
+          <Route path='/cart'>
+          <Cart></Cart>
+          </Route>
           <Route>
             <DashBoard path='/dashboard'></DashBoard>
           </Route>

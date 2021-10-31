@@ -1,47 +1,49 @@
-import React from "react";
-import { Container, Col, Row } from "react-bootstrap";
+import React from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import './Footer.css'
+
+import logo from '../../../assets/footer-logo.png'
 const Footer = () => {
     return (
-        <div  className="footer font-small pt-4 mt-4">
-            <Container fluid className="text-center text-md-left">
-                <Row>
-                    <Col md="4">
-                        <h5 className="title">Footer Content</h5>
-                        <p>
-                            Here you can use rows and columns here to organize your footer
-                            content.
-                        </p>
-                    </Col>
-                    <Col md="4">
-                        <h5 className="title">Links</h5>
+        <div>
+            <Container className="bg-off-blue footer text-dark text-center mt-5" fluid  >
+                <Row className='p-5' >
+                    <Col sm={4}>
                         <ul>
-                            <li className="list-unstyled">
-                                <a href="#!">Link 1</a>
+                            <img src={logo} alt="" />
+                            <li variant="dark">Call us 800 388 80 90
                             </li>
-                            <li className="list-unstyled">
-                                <a href="#!">Link 2</a>
-                            </li>
-                            <li className="list-unstyled">
-                                <a href="#!">Link 3</a>
-                            </li>
-                            <li className="list-unstyled">
-                                <a href="#!">Link 4</a>
-                            </li>
+                            <li variant="dark">58 Howard Street #2 San Francisco</li>
+                            <li variant="dark">
+                                contact@medizin.com</li>
                         </ul>
                     </Col>
-                    <Col md="4">
-                        <h1>df</h1>
-                    </Col>
+                    <Col sm={4}><h3 className="ms-4">Customer Service</h3>
+                        <ul>
+                            <li variant="dark">Payment Options</li>
+                            <li variant="dark"> My Wishlist</li>
+                            <li variant="dark">My Account</li>
+                            <li variant="dark">Return Policy </li>
+                            <li variant="dark">Tours FAQs</li>
+
+                        </ul></Col>
+                    <Col sm={4}><h3 className="ms-4">Our Company</h3>
+                        <ul>
+                            <li variant="dark">About us</li>
+                            <li variant="dark">Location</li>
+                            <li variant="dark">Register </li>
+                            <li variant="dark">Feedback</li>
+                            <li variant="dark">Shop Location</li>
+                        </ul></Col>
                 </Row>
+                <div class="row  p-5">
+                    <div class="copyright text-muted pb-5">
+                        <p>© 2021 Copyright all Right Reserved Design by Simatna</p>
+                    </div>
+                </div>
             </Container>
-            <div className="footer-copyright text-center py-3">
-                <Container fluid>
-                    &copy; {new Date().getFullYear()} Copyright: Simanta Barua
-                </Container>
-            </div>
         </div>
     );
-}
+};
 
 export default Footer;

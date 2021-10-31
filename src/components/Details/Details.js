@@ -29,6 +29,7 @@ const Details = () => {
                         <h1>Tour Details</h1>
                         <div>
                             <img src={image} alt="" />
+                            <h1>Overview</h1>
                             <h3>{title}</h3>
                             <p>{details}</p>
                         </div>
@@ -46,7 +47,7 @@ const Details = () => {
                             <input placeholder="Address" {...register("Address", { required: true, maxLength: 20 })} />
                             <label>Mobile number</label><br />
                             <input type="tel" placeholder="Mobile number" {...register("Mobile number", { required: true, minLength: 6, maxLength: 11 })} />
-                            <input type="submit" value="Book Tour" />
+                            <input type="submit" value="Book Now" />
                         </form>
                     </div>
                     <div>

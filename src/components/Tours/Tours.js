@@ -28,8 +28,8 @@ const Tours = () => {
         <Container>
             <div className="course-container mt-5 p-3">
                 <div className="text-center text-box ">
-                    <h2> Shop whatever you want the Right </h2>
-                    <h1>Our latest medical items for you</h1>
+                    <h2>  </h2>
+                    <h1>Go Exotic Places</h1>
                 </div>
                 <Row xs={1} md={2} sm={1} lg={4} className="g-1 mt-2">
                     {
@@ -49,6 +49,9 @@ const Tours = () => {
                             >{number + 1}</button>)
                     }
                 </div>
+            </div>
+            <div>
+                cart
             </div>
         </Container>
     );

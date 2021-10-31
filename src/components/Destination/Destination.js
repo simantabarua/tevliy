@@ -3,7 +3,9 @@ import React from 'react';
 const Destination = () => {
     return (
         <div>
-            <h1>Destination</h1>
+            <div className="text-center mt-5">
+            <h1>Find your Destination</h1>
+            </div>
         </div>
     );
 };

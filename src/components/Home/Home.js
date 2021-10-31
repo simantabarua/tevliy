@@ -1,13 +1,15 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
+import Destination from '../Destination/Destination';
 import Slider from '../Slider/Slider';
-import Responsive from '../Slider/SliderSecond';
+import SliderSecond from '../Slider/SliderSecond';
 const Home = () => {
   return (
     <div>
       <Slider></Slider>
       <Container>
-        <Responsive></Responsive>
+        <SliderSecond></SliderSecond>
+        <Destination></Destination>
       </Container>
     </div>
   );

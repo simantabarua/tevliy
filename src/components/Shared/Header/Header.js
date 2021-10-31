@@ -32,6 +32,7 @@ const Header = () => {
                                 </div> :
                                 <Nav.Link as={NavLink} to="/login" className="nav-link" ><Button>sign In</Button></Nav.Link>
                             }
+                             <Nav.Link as={NavLink} to="/cart" className="nav-link" >cart</Nav.Link>
                         </Nav>
 
                     </Navbar.Collapse>
