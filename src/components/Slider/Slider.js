@@ -18,8 +18,8 @@ const Slider = () => {
                                     alt="First slide"
                                 />
                                 <Carousel.Caption>
-                                    <h1 >COVID-19 Prevention <br /> Care Supplies </h1>
-                                    <p >Backed by experience since 1950. One-stop Source for all your Hospital & Medical Needs. </p>
+                                    <h1 >Enjoy  <br /> Your Vacation With Us </h1>
+                                    <p >We Provide Best Travel Service </p>
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item interval={1500}>
@@ -29,9 +29,9 @@ const Slider = () => {
                                     alt="Second slide"
                                 />
                                 <Carousel.Caption>
-                                    <span>Home Medical Supplies</span>
-                                    <h2>Sanitizer Gel Alcohol</h2>
-                                    <h3>$15.00</h3>
+                                    <span>join us</span>
+                                    <h2>Travel And Adventure</h2>
+                                    <h3>Where you want to go</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
@@ -41,8 +41,8 @@ const Slider = () => {
                                     alt="Third slide"
                                 />
                                 <Carousel.Caption>
-                                    <h1 >Fitted Face Mask N95<br /> Group Pack of 3 </h1>
-                                    <p >3M high-efficiency electrostatic filter cotton, non-oily particle filtration efficiency ≥ 90% </p>
+                                    <h1 >Plan Your Trip with<br /> Trevily </h1>
+                                    <p >Largest global industrial business community</p>
                                 </Carousel.Caption>
                             </Carousel.Item>
                         </Carousel>

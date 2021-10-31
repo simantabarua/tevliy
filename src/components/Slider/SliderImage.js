@@ -1,8 +1,8 @@
 import React from 'react';
 
 const SliderImage = (props) => {
-    const {image,title} = props.tour;
-    
+    const { image, title } = props.tour;
+
     return (
         <div className="sliderImage">
             <img src={image} alt="" />

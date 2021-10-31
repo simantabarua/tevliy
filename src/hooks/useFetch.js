@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 
 const useFetch = () => {
     const url = 'https://intense-ravine-02304.herokuapp.com/tours'
-    const [products, setProducts] = useState([])
+    const [tours, setTours] = useState([])
 
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
-            .then(data => setProducts(data.tours)
+            .then(data => setTours(data.tours)
             )
     }, [])
-    return [products]
+    return [tours]
 }
 
 export default useFetch;

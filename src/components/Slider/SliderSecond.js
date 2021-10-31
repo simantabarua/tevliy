@@ -6,8 +6,6 @@ import SliderImage from "./SliderImage";
 
 const SliderSecond = () => {
   const [tours] = useFetch();
-  console.log(tours);
-
   var settings = {
     dots: true,
     infinite: false,
@@ -49,7 +47,8 @@ const SliderSecond = () => {
       <Slider {...settings}>
         {
           tours.map(tour => <SliderImage
-          tour={tour}
+          key={tour._id}
+            tour={tour}
           ></SliderImage>)
         }
       </Slider>

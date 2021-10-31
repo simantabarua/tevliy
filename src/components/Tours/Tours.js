@@ -13,7 +13,6 @@ const Tours = () => {
     const size = 10;
     useEffect(() => {
         const url = `https://intense-ravine-02304.herokuapp.com/tours?page=${page}&&size=${size}`;
-        // const url = `http://localhost:5000/tours?page=${page}&&size=${size}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -35,6 +34,7 @@ const Tours = () => {
                     {
                         tours.map(tour => <SingleTour
                             tour={tour}
+                            key={tour._id}
                         ></SingleTour>)
                     }
 

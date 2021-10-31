@@ -15,7 +15,7 @@ const Footer = () => {
                             </li>
                             <li variant="dark">58 Howard Street #2 San Francisco</li>
                             <li variant="dark">
-                                contact@medizin.com</li>
+                                contact@tevily.com</li>
                         </ul>
                     </Col>
                     <Col sm={4}><h3 className="ms-4">Customer Service</h3>
@@ -23,7 +23,7 @@ const Footer = () => {
                             <li variant="dark">Payment Options</li>
                             <li variant="dark"> My Wishlist</li>
                             <li variant="dark">My Account</li>
-                            <li variant="dark">Return Policy </li>
+                            <li variant="dark"> Policy </li>
                             <li variant="dark">Tours FAQs</li>
 
                         </ul></Col>
@@ -33,7 +33,6 @@ const Footer = () => {
                             <li variant="dark">Location</li>
                             <li variant="dark">Register </li>
                             <li variant="dark">Feedback</li>
-                            <li variant="dark">Shop Location</li>
                         </ul></Col>
                 </Row>
                 <div class="row  p-5">

@@ -4,7 +4,7 @@ import './SingleTour.css'
 import { Link } from 'react-router-dom';
 
 const SingleTour = (props) => {
-    const { _id, title, image, category, price, details } = props.tour;
+    const { _id, title, image, location, price, day } = props.tour;
 
     
     return (
@@ -17,8 +17,9 @@ const SingleTour = (props) => {
                         <Card.Text>
                         </Card.Text>
                         <ListGroup variant="flush" >
-                            <ListGroup.Item> Category: <Badge pill bg="primary">{category}</Badge></ListGroup.Item>
+                            <ListGroup.Item> Location: <Badge pill bg="primary">{location}</Badge></ListGroup.Item>
                             <ListGroup.Item>Price: ${price} </ListGroup.Item>
+                            <ListGroup.Item>{day} days </ListGroup.Item>
                         </ListGroup>
                     </Card.Body>
                     <Card.Footer className="text-center card-footer">

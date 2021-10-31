@@ -11,11 +11,10 @@ const Details = () => {
     const onSubmit = data => console.log(data);
     const { id } = useParams();
     const [tour, setTour] = useState({});
-    const { title, image, category, price, details } = tour;
-    console.log(tour);
+    const { title, image, location, price, details } = tour;
     
     useEffect(() => {
-        const url = `http://localhost:5000/tours/details/${id}`;
+        const url = `https://intense-ravine-02304.herokuapp.com/tours/details/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTour(data)
@@ -31,6 +30,7 @@ const Details = () => {
                             <img src={image} alt="" />
                             <h1>Overview</h1>
                             <h3>{title}</h3>
+                            <h3>Location: {location}</h3>
                             <p>{details}</p>
                         </div>
                     </div>

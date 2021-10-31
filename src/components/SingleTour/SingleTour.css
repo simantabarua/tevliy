@@ -1,26 +1,25 @@
 .custom-cart {
-    border-radius: 3%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-top: 2rem;
-    padding: .8rem;
-    font-weight: 600;
-    color: rgb(85, 136, 230);
-    height: 500px;
-    align-items: baseline;
-    background-color: rgb(242, 250, 252) !important;
-  }
-  .custom-cart:hover {
-    transform: scale(1.1);
-    overflow: hidden;
-    transition: all ease-in-out 0.3s;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    cursor: pointer;
-  }
-  .rating {
-    color: goldenrod !important;
-  }
-  .card-footer {
-    background-color: rgb(242, 250, 252) !important ;
-    border: none !important;
-  }
-  
+  border-radius: 3%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin-top: 2rem;
+  padding: 0.8rem;
+  font-weight: 600;
+  color: rgb(85, 136, 230);
+  height: 560px;
+  align-items: baseline;
+  background-color: rgb(242, 250, 252) !important;
+}
+.custom-cart:hover {
+  transform: scale(1.1);
+  overflow: hidden;
+  transition: all ease-in-out 0.3s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+}
+.rating {
+  color: goldenrod !important;
+}
+.card-footer {
+  background-color: rgb(242, 250, 252) !important ;
+  border: none !important;
+}
