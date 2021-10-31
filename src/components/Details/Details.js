@@ -12,6 +12,8 @@ const Details = () => {
     const { id } = useParams();
     const [tour, setTour] = useState({});
     const { title, image, category, price, details } = tour;
+    console.log(tour);
+    
     useEffect(() => {
         const url = `http://localhost:5000/tours/details/${id}`;
         fetch(url)

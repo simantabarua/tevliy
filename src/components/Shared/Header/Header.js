@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useFirebase from '../../../hooks/useFirebase';
 import './Header.css'
 const Header = () => {
@@ -25,9 +25,11 @@ const Header = () => {
                             <Nav.Link as={NavLink} to="/about" className="nav-link" >About</Nav.Link>
                             <Nav.Link as={NavLink} to="/contact" className="nav-link" >Contact</Nav.Link>
                             {user.email ?
-                                <div className='d-flex'>
-                                    <Button className="mx-5" onClick={signOutUser}>Sign Out</Button>
-                                    <p className="px-5"> {user.displayName}</p></div> :
+                                <div className=' justify-content-end align-items-baseline ms-md-5 ps-md-5 mx-auto'>
+                                    <span className="m-1"> {user.displayName}</span>
+                                    <Button className="ms-2" onClick={signOutUser}>Sign Out</Button>
+                                    <Link to='/dashboard'><Button className="mx-1" onClick={signOutUser}>Dashboard</Button></Link>
+                                </div> :
                                 <Nav.Link as={NavLink} to="/login" className="nav-link" ><Button>sign In</Button></Nav.Link>
                             }
                         </Nav>
