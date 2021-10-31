@@ -2,15 +2,28 @@ import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import SingleTour from '../SingleTour/SingleTour';
+import './Tours.css'
 const Tours = () => {
-    const [products, setProducts] = useState([])
-    const url = 'https://intense-ravine-02304.herokuapp.com/tours'
+    const [tours, setTours] = useState([])
+
+    // https://intense-ravine-02304.herokuapp.com/tours
+    const [page, setPage] = useState(0);
+    const [pageCount, setPageCount] = useState(0);
+    //  rendered on the UI
+    const [displayTours, setDisplayTours] = useState([]);
+    const size = 10;
     useEffect(() => {
+        const url = `http://localhost:5000/tours?page=${page}&&size=${size}`;
         fetch(url)
             .then(res => res.json())
-            .then(data => setProducts(data)
-            )
-    }, [])
+            .then(data => {
+                setTours(data.tours);
+                setDisplayTours(data.tours);
+                const count = data.count;
+                const pageNumber = Math.ceil(count / size);
+                setPageCount(pageNumber);
+            });
+    }, [page]);
     return (
         <Container>
             <div className="course-container mt-5 p-3">
@@ -20,11 +33,22 @@ const Tours = () => {
                 </div>
                 <Row xs={1} md={2} sm={1} lg={4} className="g-1 mt-2">
                     {
-                        products.map(product => <SingleTour
-                            product={product}
+                        tours.map(tour => <SingleTour
+                            tour={tour}
                         ></SingleTour>)
                     }
+
                 </Row>
+                <div className="pagination">
+                    {
+                        [...Array(pageCount).keys()]
+                            .map(number => <button
+                                className={number === page ? 'selected' : ''}
+                                key={number}
+                                onClick={() => setPage(number)}
+                            >{number + 1}</button>)
+                    }
+                </div>
             </div>
         </Container>
     );

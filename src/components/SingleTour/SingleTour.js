@@ -4,7 +4,7 @@ import './SingleTour.css'
 import { Link } from 'react-router-dom';
 
 const SingleTour = (props) => {
-    const { index, title, image, category, price, details } = props.product;
+    const { index, title, image, category, price, details } = props.tour;
     return (
         <div>
              <Col>
