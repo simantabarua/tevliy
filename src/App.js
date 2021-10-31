@@ -47,15 +47,15 @@ function App() {
               <About></About> </Route>
             <Route path='/contact'>
               <Contact></Contact></Route>
-              <PrivateRoute exact path="/tour_details/:id">
-            <Details></Details>
-          </PrivateRoute>
-          <Route path='/cart'>
-          <Cart></Cart>
-          </Route>
-          <Route>
-            <DashBoard path='/dashboard'></DashBoard>
-          </Route>
+            <PrivateRoute exact path="/tour_details/:id">
+              <Details></Details>
+            </PrivateRoute>
+            <Route path='/cart'>
+              <Cart></Cart>
+            </Route>
+            <Route path='/dashboard'>
+              <DashBoard ></DashBoard>
+            </Route>
             <Route path='*'>
               <NotFound></NotFound> </Route>
           </Switch>

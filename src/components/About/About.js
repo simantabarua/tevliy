@@ -15,7 +15,7 @@ const About = () => {
 
                         <h6> A Simply Perfect Place to Get Lost</h6>
                         <p>WWe are trusted by our clients and have a reputation for the best services in the field. Lorem ipsum is simply free text dolor sit amett consectetur adipiscing elit. It is a long established fact that a reader will be distracted by the readable content of a page. Thank you for visiting our site. We look </p>
-                        <Link to="/tour"><Button variant="outline-primary" >Browse all tours</Button></Link>
+                        <Link to="/tours"><Button variant="outline-primary" >Browse all tours</Button></Link>
                     </Col>
 
                 </Row>
