@@ -19,7 +19,6 @@ const SingleTour = (props) => {
                         <ListGroup variant="flush" >
                             <ListGroup.Item> Category: <Badge pill bg="primary">{category}</Badge></ListGroup.Item>
                             <ListGroup.Item>Price: ${price} </ListGroup.Item>
-                            <ListGroup.Item>{details} </ListGroup.Item>
                         </ListGroup>
                     </Card.Body>
                     <Card.Footer className="text-center card-footer">

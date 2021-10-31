@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import Destination from '../Destination/Destination';
+import Partner from '../Partner/Partner';
 import Slider from '../Slider/Slider';
 import SliderSecond from '../Slider/SliderSecond';
 const Home = () => {
@@ -10,6 +11,7 @@ const Home = () => {
       <Container>
         <SliderSecond></SliderSecond>
         <Destination></Destination>
+        <Partner></Partner>
       </Container>
     </div>
   );

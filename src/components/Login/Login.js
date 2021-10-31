@@ -1,6 +1,6 @@
 import { signInWithPopup } from '@firebase/auth';
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router';
 import swal from 'sweetalert';
 import useAuth from '../../hooks/useAuth';
@@ -32,8 +32,10 @@ const Login = () => {
     }
     return (
         <div>
-            <h2>login</h2>
-            <Button onClick={handleGoogleSignIn}>Google sign in</Button>
+            <Container className="text-center p-5">
+                <h1 className="mb-5">Please Login to Continue</h1>
+                <Button onClick={handleGoogleSignIn}>Google sign in</Button>
+            </Container>
         </div>
     );
 };
