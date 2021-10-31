@@ -1,0 +1,25 @@
+.details-form{
+  padding: 2rem;
+  margin-top: 1rem;
+  background-color: rgb(229, 239, 241);
+  border-radius: 10px;
+}
+.details-form form {
+  display: flex;
+  flex-direction: column;
+
+ 
+}
+.details-form form input {
+  width: 100%;
+  margin: 0.5rem 0;
+  border: 1px solid rgb(114, 49, 49);
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-weight: 400;
+  align-self: center;
+}
+.details-form label {
+  font-weight: 600;
+ 
+}
