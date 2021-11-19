@@ -1,6 +1,6 @@
 
 import React from "react";
-import {Button, Badge, Card, ListGroup, Spinner } from "react-bootstrap";
+import { Button, Badge, Card, ListGroup, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import useFetch from "../../hooks/useFetch";
@@ -50,7 +50,7 @@ const SliderSecond = () => {
         <Spinner animation="border" /></div> :
         <Slider {...settings}>
           {
-            tours.map(tour => <Card style={{ width: '18rem' }} className="custom-cart">
+            tours.map(tour => <Card key={tour._id} style={{ width: '18rem' }} className="custom-cart">
               <Card.Img variant="top" src={tour.image} />
               <Card.Body>
                 <Card.Title>{tour.title}</Card.Title>
