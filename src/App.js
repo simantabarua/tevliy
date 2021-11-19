@@ -23,6 +23,8 @@ import DashBoard from './components/DashBoard/DashBoard';
 import MyOrder from './components/DashBoard/MyOrder/MyOrder';
 import ManageOrder from './components/DashBoard/ManageOrder/ManageOrder';
 import AddNewServices from './components/DashBoard/AddNewServiecs/AddNewServices';
+import Register from './components/Register/Register';
+import MakeAdmin from './components/DashBoard/MakeAdmin/MakeAdmin';
 function App() {
   return (
     <div>
@@ -41,6 +43,9 @@ function App() {
             </Route>
             <Route path='/login'>
               <Login />
+            </Route>
+            <Route path='/register'>
+              <Register />
             </Route>
             <Route path='/destination'>
               <Destination />
@@ -62,6 +67,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path='/addnewservice'>
               <AddNewServices />
+            </PrivateRoute>
+            <PrivateRoute path='/makeadmin'>
+              <MakeAdmin />
             </PrivateRoute>
             <Route path='/dashboard'>
               <DashBoard />

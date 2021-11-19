@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import initializeAuthentication from '../config/firebse.init';
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import swal from 'sweetalert';
 initializeAuthentication();
 const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
-
+    const [authError, setAuthError] = useState('');
     const auth = getAuth();
     const googleAuthProvider = new GoogleAuthProvider();
     //google sign in
@@ -24,16 +24,46 @@ const useFirebase = () => {
     }
     //on State Change 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
+        const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setUser(user)
+                setUser(user);
             } else {
                 setUser({})
             }
-            setIsLoading(false)
-        })
-        return () => unsubscribe()
-    }, [])
+            setIsLoading(false);
+        });
+        return () => unsubscribed;
+    }, [auth])
+    //Register user
+
+    const registerUser = (email, password) => {
+        setIsLoading(true);
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                setAuthError('');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+                console.log(error);
+            })
+            .finally(() => setIsLoading(false));
+    }
+
+    //login users
+    const signInUser = (email, password, location, history) => {
+        setIsLoading(true);
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
+                setAuthError('');
+            })
+            .catch((error) => {
+                setAuthError(error.message);
+            })
+            .finally(() => setIsLoading(false));
+    }
+
 
 
 
@@ -43,6 +73,8 @@ const useFirebase = () => {
         setUser,
         signInUsingGoogle,
         signOutUser,
+        signInUser,
+        registerUser,
         isLoading,
         setIsLoading
     }

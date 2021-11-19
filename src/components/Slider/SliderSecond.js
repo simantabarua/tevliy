@@ -1,6 +1,6 @@
-import Button from "@restart/ui/esm/Button";
+
 import React from "react";
-import { Badge, Card, ListGroup, Spinner } from "react-bootstrap";
+import {Button, Badge, Card, ListGroup, Spinner } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import useFetch from "../../hooks/useFetch";
@@ -63,7 +63,7 @@ const SliderSecond = () => {
                 </ListGroup>
               </Card.Body>
               <Card.Footer className="text-center card-footer">
-                <Link to={`/tour_details/${tour._id}`} className="text-light"> <Button variant="primary" className="btn-style">Details</Button></Link>
+                <Link to={`/tour_details/${tour._id}`} className="text-light"> <Button variant="primary" >Details</Button></Link>
               </Card.Footer>
             </Card>)
           }

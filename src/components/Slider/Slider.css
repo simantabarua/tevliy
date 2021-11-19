@@ -1,13 +1,13 @@
 .slick-list {
-  margin: 0 -7px !important;
+  margin: 0 -10px !important;
 }
 
 .slick-slide > div {
-  padding: 0 7px !important;
+  padding: 0 10px !important;
 }
 .btn-style {
   border-radius: 10px !important;
-  padding: 5px 10px !important;
-  background-color: rgb(92, 174, 212);
-  color: aliceblue;
+  padding: 15px 10px !important;
+  background-color: #4edfdf;
+  color: rgb(16, 17, 17);
 }

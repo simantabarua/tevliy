@@ -82,8 +82,8 @@ const Contact = () => {
                                 <Form.Check type="checkbox" label="Check me out" />
                             </Form.Group>
 
-                            <Link to='signIn' ><Button variant="primary">
-                                Submit
+                            <Link to='/register' ><Button variant="primary">
+                                Send
                             </Button></Link>
                         </Form>
                     </Col>
