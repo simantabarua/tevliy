@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button, Container, Dropdown, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
-import useFirebase from '../../../hooks/useFirebase';
 import logo from '../../../assets/logo-1.png'
 import './Header.css'
+import useAuth from '../../../hooks/useAuth';
 const Header = () => {
-    const { user, signOutUser } = useFirebase();
+    const { user, admin, signOutUser } = useAuth();
+    console.log(admin);
 
     return (
         <div>
@@ -26,17 +27,23 @@ const Header = () => {
                         <Nav.Link as={NavLink} to="/about" className="nav-link" >About</Nav.Link>
                         <Nav.Link as={NavLink} to="/contact" className="nav-link" >Contact</Nav.Link>
 
-                        {user.email ?
+                        {(user.email && admin) ?
                             <div className='d-flex  justify-content-end align-items-baseline ms-md-5 ps-md-5 mx-auto'>
-
-                                <Nav.Link as={NavLink} to='/myorders'>My Orders</Nav.Link>
                                 <Nav.Link as={NavLink} to='/manageorder'>Manage Order</Nav.Link>
                                 <Nav.Link as={NavLink} to='/addnewservice'>Add New Service</Nav.Link>
                                 <p className="m-1"> {user.email}</p>
                                 <Button className="ms-2" onClick={signOutUser}>Sign Out</Button>
+                            </div>
+                            :
+                            (user.email) ?
+                                <div className='d-flex  justify-content-end align-items-baseline ms-md-5 ps-md-5 mx-auto'>
 
-                            </div> :
-                            <Nav.Link as={NavLink} to="/login" className="nav-link" ><Button>sign In</Button></Nav.Link>
+                                    <Nav.Link as={NavLink} to='/myorders'>My Orders</Nav.Link>
+                                    <p className="m-1"> {user.email}</p>
+                                    <Button className="ms-2" onClick={signOutUser}>Sign Out</Button>
+
+                                </div> :
+                                <Nav.Link as={NavLink} to="/login" className="nav-link" ><Button>sign In</Button></Nav.Link>
                         }
 
                     </Nav>

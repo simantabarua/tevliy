@@ -7,12 +7,22 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
+    const [admin, setAdmin] = useState();
     const auth = getAuth();
-    const googleAuthProvider = new GoogleAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
     //google sign in
-    const signInUsingGoogle = () => {
-        return signInWithPopup(auth, googleAuthProvider)
-
+    const signInWithGoogle = (location, history) => {
+        setIsLoading(true);
+        signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                const user = result.user;
+                setAuthError('');
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
+                sessionStorage.setItem("email", result.user.email);
+            }).catch((error) => {
+                setAuthError(error.message);
+            }).finally(() => setIsLoading(false));
     }
     // sign out 
     const signOutUser = () => {
@@ -22,6 +32,12 @@ const useFirebase = () => {
             swal("Something went wrong!", `${err.message}`, "error")
         })
     }
+    //load admin
+    useEffect(() => {
+        fetch(`http://localhost:5000/admins?email=${user?.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data))
+    }, [user?.email])
     //on State Change 
     useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
@@ -34,12 +50,16 @@ const useFirebase = () => {
         });
         return () => unsubscribed;
     }, [auth])
+
+
     //Register user
 
-    const registerUser = (email, password) => {
+    const registerUser = (email, password, location, history) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                const destination = location?.state?.from || '/';
+                history.replace(destination);
                 setAuthError('');
             })
             .catch((error) => {
@@ -48,6 +68,7 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false));
     }
+
 
     //login users
     const signInUser = (email, password, location, history) => {
@@ -63,19 +84,15 @@ const useFirebase = () => {
             })
             .finally(() => setIsLoading(false));
     }
-
-
-
-
-
     return {
         user,
         setUser,
-        signInUsingGoogle,
+        signInWithGoogle,
         signOutUser,
         signInUser,
         registerUser,
         isLoading,
+        admin,
         setIsLoading
     }
 };

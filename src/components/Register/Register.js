@@ -4,43 +4,24 @@ import { useForm, useWatch } from "react-hook-form";
 import { useHistory, useLocation } from 'react-router';
 import swal from 'sweetalert';
 import useAuth from '../../hooks/useAuth';
+import useFirebase from '../../hooks/useFirebase';
 import './Register.css'
 
 const Register = () => {
-    const { user, registerUser, setUser, setIsLoading, signInUsingGoogle } = useAuth();
+    const { user, registerUser, setUser, setIsLoading, signInWithGoogle } = useFirebase();
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const history = useHistory();
     const location = useLocation();
-    const redirect_url = location.state?.from || '/home';
+    const history = useHistory();
     const onSubmit = data => {
         setIsLoading(true);
         setUser(data.user);
-        registerUser(data.email, data.password);
-        history.push(redirect_url);
-        if (user?.email) {
-            swal("Success", {
-                icon: "success",
-            });
-        }
+        registerUser(data.email, data.password, location, history);
+
     };
     //handle google sing in
+    //handle google sing in
     const handleGoogleSignIn = () => {
-        signInUsingGoogle()
-            .then((result) => {
-                setIsLoading(true);
-                setUser(result.user);
-                history.push(redirect_url);
-                swal("Google Sign In Success", {
-                    icon: "success",
-                });
-            })
-            .catch(err =>
-                swal("Something went wrong! try Again", `${err.message}`, "error")
-
-            )
-            .finally(() => {
-                setIsLoading(false)
-            })
+        signInWithGoogle(location, history)
     }
     return (
         <div>
