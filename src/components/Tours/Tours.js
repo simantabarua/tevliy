@@ -12,7 +12,7 @@ const Tours = () => {
     const [displayTours, setDisplayTours] = useState([]);
     const size = 10;
     useEffect(() => {
-        const url = `https://intense-ravine-02304.herokuapp.com/tours?page=${page}&&size=${size}`;
+        const url = `http://localhost:5000/tours?page=${page}&&size=${size}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {

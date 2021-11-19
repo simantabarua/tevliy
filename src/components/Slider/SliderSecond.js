@@ -47,7 +47,7 @@ const SliderSecond = () => {
       <Slider {...settings}>
         {
           tours.map(tour => <SliderImage
-          key={tour._id}
+            key={tour._id}
             tour={tour}
           ></SliderImage>)
         }

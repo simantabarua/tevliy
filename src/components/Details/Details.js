@@ -4,22 +4,47 @@ import { useParams } from 'react-router';
 import { useForm } from "react-hook-form";
 import useFirebase from '../../hooks/useFirebase';
 import './Details.css'
+import swal from 'sweetalert';
 
 const Details = () => {
     const { register, handleSubmit } = useForm();
     const { user } = useFirebase();
-    const onSubmit = data => console.log(data);
+    const email = user?.email;
     const { id } = useParams();
     const [tour, setTour] = useState({});
     const { title, image, location, price, details } = tour;
-    
+
     useEffect(() => {
-        const url = `https://intense-ravine-02304.herokuapp.com/tours/details/${id}`;
+        const url = `http://localhost:5000/tours/details/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTour(data)
             )
     }, []);
+
+    const onSubmit = (data) => {
+        data.email = email;
+        data.status = "pending";
+        data.image = image;
+        data.price = price;
+
+        fetch("http://localhost:5000/placeOrder", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(data),
+        })
+            .then((res) => res.json())
+            .then(data => {
+                console.log(data);
+
+                if (data.acknowledged) {
+                    swal("Order Place Success", {
+                        icon: "success",
+                    });
+                }
+                
+            });
+    }
     return (
         <Container>
             <Row>

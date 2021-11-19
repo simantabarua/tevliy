@@ -20,7 +20,9 @@ import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import Details from './components/Details/Details';
 import DashBoard from './components/DashBoard/DashBoard';
-import Cart from './components/Cart/Cart';
+import MyOrder from './components/DashBoard/MyOrder/MyOrder';
+import ManageOrder from './components/DashBoard/ManageOrder/ManageOrder';
+import AddNewServices from './components/DashBoard/AddNewServiecs/AddNewServices';
 function App() {
   return (
     <div>
@@ -32,32 +34,41 @@ function App() {
               <Home></Home>
             </Route>
             <Route path="/home">
-              <Home></Home>
+              <Home />
             </Route>
             <Route path='/tours'>
-              <Tours></Tours>
+              <Tours />
             </Route>
             <Route path='/login'>
-              <Login></Login>
+              <Login />
             </Route>
             <Route path='/destination'>
-              <Destination></Destination>
+              <Destination />
             </Route>
             <Route path='/about'>
-              <About></About> </Route>
-            <Route path='/contact'>
-              <Contact></Contact></Route>
-            <PrivateRoute exact path="/tour_details/:id">
-              <Details></Details>
-            </PrivateRoute>
-            <Route path='/cart'>
-              <Cart></Cart>
+              <About />
             </Route>
+            <Route path='/contact'>
+              <Contact />
+            </Route>
+            <PrivateRoute exact path="/tour_details/:id">
+              <Details />
+            </PrivateRoute>
+            <PrivateRoute path='/myorders'>
+              <MyOrder />
+            </PrivateRoute>
+            <PrivateRoute path='/manageorder'>
+              <ManageOrder />
+            </PrivateRoute>
+            <PrivateRoute path='/addnewservice'>
+              <AddNewServices />
+            </PrivateRoute>
             <Route path='/dashboard'>
-              <DashBoard ></DashBoard>
+              <DashBoard />
             </Route>
             <Route path='*'>
-              <NotFound></NotFound> </Route>
+              <NotFound />
+            </Route>
           </Switch>
           <Footer></Footer>
         </Router>

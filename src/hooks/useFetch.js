@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const useFetch = () => {
-    const url = 'https://intense-ravine-02304.herokuapp.com/tours'
+    const url = 'http://localhost:5000/tours'
     const [tours, setTours] = useState([])
 
     useEffect(() => {
