@@ -1,4 +1,4 @@
-.details-form{
+.details-form {
   padding: 2rem;
   margin-top: 1rem;
   background-color: rgb(229, 239, 241);
@@ -7,8 +7,6 @@
 .details-form form {
   display: flex;
   flex-direction: column;
-
- 
 }
 .details-form form input {
   width: 100%;
@@ -21,5 +19,7 @@
 }
 .details-form label {
   font-weight: 600;
- 
+}
+p {
+  color: rgba(255, 0, 0, 0.795) !important;
 }

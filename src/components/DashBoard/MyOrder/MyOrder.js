@@ -12,7 +12,7 @@ const MyOrder = () => {
     console.log(myOrders);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${email}`)
+        fetch(` https://intense-ravine-02304.herokuapp.com/myOrders/${email}`)
             .then(res => res.json())
             .then(result => setMyOrders(result))
     }, [setMyOrders]);
@@ -21,7 +21,7 @@ const MyOrder = () => {
         console.log(id);
         const proceed = window.confirm("Are you sure , you want to delete")
         if (proceed) {
-            const url = `http://localhost:5000/deleteOrder/${id}`
+            const url = ` https://intense-ravine-02304.herokuapp.com/deleteOrder/${id}`
             fetch(url, {
                 method: 'DELETE'
             })

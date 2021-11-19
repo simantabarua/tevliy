@@ -31,7 +31,7 @@ const Header = () => {
                             <div className='d-flex  justify-content-end align-items-baseline ms-md-5 ps-md-5 mx-auto'>
                                 <Nav.Link as={NavLink} to='/manageorder'>Manage Order</Nav.Link>
                                 <Nav.Link as={NavLink} to='/addnewservice'>Add New Service</Nav.Link>
-                                <p className="m-1"> {user.email}</p>
+                                <h6 className="m-1"> {user.email}</h6>
                                 <Button className="ms-2" onClick={signOutUser}>Sign Out</Button>
                             </div>
                             :

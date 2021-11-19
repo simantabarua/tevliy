@@ -6,7 +6,7 @@ import swal from 'sweetalert';
 import useFirebase from '../../../hooks/useFirebase';
 
 const AddNewServices = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm();
     const { user } = useFirebase();
     const { id } = useParams();
     const [tour, setTour] = useState({});
@@ -14,7 +14,7 @@ const AddNewServices = () => {
     const { title, image, location, price, details } = tour;
 
     useEffect(() => {
-        const url = `http://localhost:5000/tours/details/${id}`;
+        const url = ` https://intense-ravine-02304.herokuapp.com/tours/details/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTour(data)
@@ -22,7 +22,7 @@ const AddNewServices = () => {
     }, []);
 
     const onSubmit = (data) => {
-        fetch("http://localhost:5000/addTour", {
+        fetch(" https://intense-ravine-02304.herokuapp.com/addTour", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -48,22 +48,36 @@ const AddNewServices = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label>Title</label><br />
                     <input type='text' placeholder="Tour Title" defaultValue={''} {...register("title", { required: true, maxLength: 20 })} />
-
+                    {errors.title &&
+                        (<p>Title is required</p>)
+                    }
                     <label>Description</label><br />
-                    <input defaultValue={''} type="text" placeholder="Description" {...register("details")} />
-
+                    <input defaultValue={''} type="text" placeholder="Description"
+                     {...register("details",{ required: true, maxLength: 20 })} />
+                    {errors.details &&
+                        (<p>Details is required</p>)
+                    }
                     <label>Image Url</label><br />
-                    <input placeholder="Image url" {...register("image", { required: true, maxLength: 20 })} />
-
+                    <input placeholder="Image url"
+                        {...register("image", { required: true, maxLength: 20 })} />
+                    {errors.image &&
+                        (<p>Image is required</p>)
+                    }
                     <label>Location</label><br />
                     <input placeholder="Location" {...register("location", { required: true, maxLength: 20 })} />
-
+                    {errors.location &&
+                        (<p>Location is required</p>)
+                    }
                     <label>Price</label><br />
                     <input type="number" placeholder="Price" {...register("price", { required: true, minLength: 4, maxLength: 6 })} />
-
+                    {errors.price &&
+                        (<p>Price is required</p>)
+                    }
                     <label>Duration</label><br />
                     <input type="number" placeholder="Day" {...register("day", { required: true, maxLength: 1 })} />
-
+                    {errors.day &&
+                        (<p>Duration is required</p>)
+                    }
                     <input type="submit" value="Add Tour" />
                 </form>
             </div>

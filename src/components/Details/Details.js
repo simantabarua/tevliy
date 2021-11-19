@@ -7,7 +7,7 @@ import './Details.css'
 import swal from 'sweetalert';
 
 const Details = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit } = useForm();
     const { user } = useFirebase();
     const { id } = useParams();
     const [tour, setTour] = useState({});
@@ -15,7 +15,7 @@ const Details = () => {
     const { title, image, location, price, details } = tour;
 
     useEffect(() => {
-        const url = `http://localhost:5000/tours/details/${id}`;
+        const url = ` https://intense-ravine-02304.herokuapp.com/tours/details/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTour(data)
@@ -28,7 +28,7 @@ const Details = () => {
         data.image = image;
         data.price = price;
 
-        fetch("http://localhost:5000/placeOrder", {
+        fetch(" https://intense-ravine-02304.herokuapp.com/placeOrder", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
@@ -67,12 +67,25 @@ const Details = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <label>Name</label><br />
                             <input defaultValue={user.displayName} {...register("name", { required: true, maxLength: 20 })} />
+                            {errors.name &&
+                                (<p>Name is required</p>)
+                            }
                             <label>Email</label><br />
                             <input defaultValue={user.email} type="email" placeholder="Email" {...register("email", { required: true, pattern: /^\S+@\S+$/i })} />
+                            {errors.email &&
+                                (<p>Email is required</p>)
+                            }
+
                             <label>Address</label><br />
                             <input placeholder="Address" {...register("address", { required: true, maxLength: 20 })} />
+                            {errors.address &&
+                                (<p>Address is required</p>)
+                            }
                             <label>Mobile number</label><br />
                             <input type="tel" placeholder="Mobile Number" {...register("phone", { required: true, minLength: 11, maxLength: 11 })} />
+                            {errors.address &&
+                                (<p>Mobile number must be 11 character long</p>)
+                            }
                             <input type="submit" value="Book Now" />
                         </form>
                     </div>

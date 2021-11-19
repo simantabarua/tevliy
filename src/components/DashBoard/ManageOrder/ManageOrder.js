@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Container, Table } from 'react-bootstrap';
+import { Button, Container, Spinner, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import useAuth from '../../../hooks/useAuth';
@@ -8,20 +8,20 @@ import useAuth from '../../../hooks/useAuth';
 const MangeOrder = () => {
     const { user } = useAuth();
     const email = user?.email;
-    const [myOrders, setMyOrders] = useState();
-    console.log(myOrders);
+    const [orders, setOrders] = useState();
+    console.log(orders);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myOrders/${email}`)
+        fetch(`https://intense-ravine-02304.herokuapp.com/orders`)
             .then(res => res.json())
-            .then(result => setMyOrders(result))
-    }, [setMyOrders]);
+            .then(result => setOrders(result))
+    }, [setOrders]);
 
     const handleDelete = (id) => {
         console.log(id);
         const proceed = window.confirm("Are you sure , you want to delete")
         if (proceed) {
-            const url = `http://localhost:5000/deleteOrder/${id}`
+            const url = ` https://intense-ravine-02304.herokuapp.com/deleteOrder/${id}`
             fetch(url, {
                 method: 'DELETE'
             })
@@ -31,41 +31,47 @@ const MangeOrder = () => {
                         swal("Delete Success", {
                             icon: "success",
                         });
-                        const remainingOrder = myOrders.filter(user => user._id !== id);
-                        setMyOrders(remainingOrder);
+                        const remainingOrder = orders.filter(user => user._id !== id);
+                        setOrders(remainingOrder);
                     }
                 });
         }
     }
     return (
         <Container>
-            {(!myOrders || !myOrders.length) ?
-                <div className="text-center p-5">
-                    <h1 >No Order found</h1>
-                    <Link as={Link} to='/tours'><Button>Find Tours</Button></Link>
-                </div>
-                : <Table striped borderless hover className='text-center'>
-                    <thead>
-                        <tr>
+            {(!orders?.length) ? <div className='text-center p-5'>  <Spinner animation="border" /></div> :
+                (!orders || !orders?.length) ?
+                    <div className="text-center p-5">
+                        <h1 >No Order found</h1>
+                        <Link as={Link} to='/tours'><Button>Find Tours</Button></Link>
+                    </div> :
 
-                            <th>Image</th>
-                            <th>Title</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            myOrders?.map(myOrder =>
+                    <Table striped borderless hover className='text-center'>
+                        <thead>
+                            <tr>
 
-                                <tr>
-                                    <td><img src={myOrder?.image} alt="order img" /> </td>
-                                    <td><h4>{myOrder?.title}</h4></td>
-                                    <td><Button onClick={() => handleDelete(myOrder._id)}>Cancel</Button></td>
-                                </tr>
-                            )
-                        }
-                    </tbody>
-                </Table>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                orders?.map(myOrder =>
+
+                                    <tr>
+                                        <td><img src={myOrder?.image} alt="order img" /> </td>
+                                        <td><h4>{myOrder?.title}</h4></td>
+                                        <td><h4>{myOrder?.email}</h4></td>
+                                        <td><h4>{myOrder?.status}</h4></td>
+                                        <td><Button onClick={() => handleDelete(myOrder._id)}>Delete</Button></td>
+                                    </tr>
+                                )
+                            }
+                        </tbody>
+                    </Table>
             }
         </Container>
     );

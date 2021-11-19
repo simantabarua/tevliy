@@ -7,7 +7,7 @@ const MakeAdmin = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const history = useHistory();
     const onSubmit = (data) => {
-        fetch("http://localhost:5000/makeAdmin", {
+        fetch(" https://intense-ravine-02304.herokuapp.com/makeAdmin", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

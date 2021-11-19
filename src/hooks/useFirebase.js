@@ -34,7 +34,7 @@ const useFirebase = () => {
     }
     //load admin
     useEffect(() => {
-        fetch(`http://localhost:5000/admins?email=${user?.email}`)
+        fetch(` https://intense-ravine-02304.herokuapp.com/admins?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data))
     }, [user?.email])
@@ -61,10 +61,15 @@ const useFirebase = () => {
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
                 setAuthError('');
+                swal(" Success", {
+                    icon: "success",
+                });
             })
             .catch((error) => {
                 setAuthError(error.message);
-                console.log(error);
+                swal(" Something is Wrong", {
+                    icon: "error",
+                });
             })
             .finally(() => setIsLoading(false));
     }
@@ -77,10 +82,16 @@ const useFirebase = () => {
             .then((userCredential) => {
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
+                swal(" Success", {
+                    icon: "success",
+                });
                 setAuthError('');
             })
             .catch((error) => {
                 setAuthError(error.message);
+                swal(" Something is Wrong", {
+                    icon: "error",
+                });
             })
             .finally(() => setIsLoading(false));
     }
