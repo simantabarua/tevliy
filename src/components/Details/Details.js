@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useParams } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 import { useForm } from "react-hook-form";
 import useFirebase from '../../hooks/useFirebase';
 import './Details.css'
@@ -12,6 +12,7 @@ const Details = () => {
     const email = user?.email;
     const { id } = useParams();
     const [tour, setTour] = useState({});
+    const history = useHistory();
     const { title, image, location, price, details } = tour;
 
     useEffect(() => {
@@ -23,6 +24,7 @@ const Details = () => {
     }, []);
 
     const onSubmit = (data) => {
+        data.title = title;
         data.email = email;
         data.status = "pending";
         data.image = image;
@@ -41,8 +43,9 @@ const Details = () => {
                     swal("Order Place Success", {
                         icon: "success",
                     });
+                    history.push('/myOrders')
                 }
-                
+
             });
     }
     return (
