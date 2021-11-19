@@ -1,6 +1,13 @@
+.slick-list {
+  margin: 0 -7px !important;
+}
 
-.sliderImage img{
-    width: auto;
-    height: auto;
-    background-color: rgb(165, 228, 165);
+.slick-slide > div {
+  padding: 0 7px !important;
+}
+.btn-style {
+  border-radius: 10px !important;
+  padding: 5px 10px !important;
+  background-color: rgb(92, 174, 212);
+  color: aliceblue;
 }

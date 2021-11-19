@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Spinner } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import SingleTour from '../SingleTour/SingleTour';
 import './Tours.css'
@@ -24,36 +24,39 @@ const Tours = () => {
             });
     }, [page]);
     return (
-        <Container>
-            <div className="course-container mt-5 p-3">
-                <div className="text-center text-box ">
-                    <h2>  </h2>
-                    <h1>Go Exotic Places</h1>
-                </div>
-                <Row xs={1} md={2} sm={1} lg={4} className="g-1 mt-2">
-                    {
-                        tours.map(tour => <SingleTour
-                            tour={tour}
-                            key={tour._id}
-                        ></SingleTour>)
-                    }
 
-                </Row>
-                <div className="pagination">
-                    {
-                        [...Array(pageCount).keys()]
-                            .map(number => <button
-                                className={number === page ? 'selected' : ''}
-                                key={number}
-                                onClick={() => setPage(number)}
-                            >{number + 1}</button>)
-                    }
+        <Container>
+            <div className="text-center text-box ">
+                <h1>Go Exotic Places</h1>
+            </div>
+            {(!tours.length) ? <div className='text-center p-5'>  <Spinner animation="border" /></div> :
+                <div className="course-container mt-5 p-3">
+
+                    <Row xs={1} md={2} sm={1} lg={4} className="g-1 mt-2">
+                        {
+                            tours.map(tour => <SingleTour
+                                tour={tour}
+                                key={tour._id}
+                            ></SingleTour>)
+                        }
+
+                    </Row>
+                    <div className="pagination">
+                        {
+                            [...Array(pageCount).keys()]
+                                .map(number => <button
+                                    className={number === page ? 'selected' : ''}
+                                    key={number}
+                                    onClick={() => setPage(number)}
+                                >{number + 1}</button>)
+                        }
+                    </div>
                 </div>
-            </div>
-            <div>
-                cart
-            </div>
+
+
+            }
         </Container>
+
     );
 };
 
