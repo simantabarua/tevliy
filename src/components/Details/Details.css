@@ -20,6 +20,6 @@
 .details-form label {
   font-weight: 600;
 }
-p {
+form p {
   color: rgba(255, 0, 0, 0.795) !important;
 }
