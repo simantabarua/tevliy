@@ -12,7 +12,7 @@ const MangeOrder = () => {
     console.log(orders);
 
     useEffect(() => {
-        fetch(`https://intense-ravine-02304.herokuapp.com/orders`)
+        fetch(`https://tevliy-sever.vercel.app/orders`)
             .then(res => res.json())
             .then(result => setOrders(result))
     }, [setOrders]);
@@ -21,7 +21,7 @@ const MangeOrder = () => {
         console.log(id);
         const proceed = window.confirm("Are you sure , you want to delete")
         if (proceed) {
-            const url = ` https://intense-ravine-02304.herokuapp.com/deleteOrder/${id}`
+            const url = `https://tevliy-sever.vercel.app/deleteOrder/${id}`
             fetch(url, {
                 method: 'DELETE'
             })

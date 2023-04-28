@@ -15,7 +15,7 @@ const Details = () => {
     const { title, image, location, price, details } = tour;
 
     useEffect(() => {
-        const url = ` https://intense-ravine-02304.herokuapp.com/tours/details/${id}`;
+        const url = `https://tevliy-sever.vercel.app/tours/details/${id}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setTour(data)
@@ -28,7 +28,7 @@ const Details = () => {
         data.image = image;
         data.price = price;
 
-        fetch(" https://intense-ravine-02304.herokuapp.com/placeOrder", {
+        fetch("https://tevliy-sever.vercel.app/placeOrder", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),

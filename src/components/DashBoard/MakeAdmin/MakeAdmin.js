@@ -7,7 +7,7 @@ const MakeAdmin = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const history = useHistory();
     const onSubmit = (data) => {
-        fetch(" https://intense-ravine-02304.herokuapp.com/makeAdmin", {
+        fetch(" https://tevliy-sever.vercel.app/makeAdmin", {
             method: "POST",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(data),
