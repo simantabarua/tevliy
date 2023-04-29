@@ -2,15 +2,15 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import './Footer.css'
 
-import logo from '../../../assets/footer-logo.png'
+import logo from '../../../assets/logo-1.png'
 const Footer = () => {
     return (
-        <div>
-            <Container className="bg-off-blue footer text-dark text-center mt-5" fluid  >
+        <div className='footer-wrapper'>
+            <Container className="bg-off-blue footer text-dark  mt-5 " fluid  >
                 <Row className='p-5' >
                     <Col sm={4}>
                         <ul>
-                            <img src={logo} alt="" />
+                            <img src={logo} alt="" className='p-4' /> 
                             <li variant="dark">Call us 800 388 80 90
                             </li>
                             <li variant="dark">58 Howard Street #2 San Francisco</li>
@@ -35,11 +35,11 @@ const Footer = () => {
                             <li variant="dark">Feedback</li>
                         </ul></Col>
                 </Row>
-                <div class="row  p-5">
-                    <div class="copyright text-muted pb-5">
+               
+                    <div class="copyright text-center ">
                         <p>© 2021 Copyright all Right Reserved Design by Simatna</p>
                     </div>
-                </div>
+                
             </Container>
         </div>
     );
